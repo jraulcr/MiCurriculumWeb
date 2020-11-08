@@ -1,0 +1,1464 @@
+    
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+/***** WEB **********/
+
+/*evita el border que aparece por defecto en algunos navegadores*/
+a img input {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+}
+
+/* spinnaker-regular - latin */
+@font-face {
+    font-family: 'Spinnaker';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/spinnaker-v11-latin-regular.eot');
+    /* IE9 Compat Modes */
+    src: local('Spinnaker'), local('Spinnaker-Regular'),
+        url('../fonts/spinnaker-v11-latin-regular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('../fonts/spinnaker-v11-latin-regular.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('../fonts/spinnaker-v11-latin-regular.woff') format('woff'),
+        /* Modern Browsers */
+        url('../fonts/spinnaker-v11-latin-regular.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('../fonts/spinnaker-v11-latin-regular.svg#Spinnaker') format('svg');
+    /* Legacy iOS */
+}
+
+html {
+    background: transparent url("../img/tech.jpg") no-repeat top center fixed;
+    background-size: cover;
+}
+
+body {
+    font-family: 'Spinnaker', sans-serif;
+    overflow-x: hidden;
+    color: #393336;
+    height: 100%;
+    width: 100%;
+    font-size: 95%;
+    line-height: 1.4;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    color: #fff;
+}
+
+p, a {
+    font-size: 1.05em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    width: 100%;
+    margin-top: 0;
+    text-rendering: optimizeSpeed;
+}
+
+h1 {
+    font-size: 2.30em;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 2.0em;
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: 1.34em;
+}
+
+h4 {
+    font-size: 1.24em;
+}
+
+div.ancla:before {
+    display: block;
+    content: " ";
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 10px;
+    visibility: hidden;
+}
+
+/**Menu navegacion**/
+.menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.2s linear;
+    z-index: 999;
+}
+
+.menu:hover {
+    opacity: 0.9;
+}
+
+.menu span {
+    display: block;
+    float: left;
+    clear: both;
+    height: 6px;
+    width: 50px;
+    border-radius: 40px;
+    background-color: rgba(69, 144, 224, 1);
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    overflow: hidden;
+    transition: all 0.6s ease;
+}
+
+.menu span:nth-child(1) {
+    margin-top: 10px;
+    z-index: 9;
+}
+
+.menu span:nth-child(2) {
+    margin-top: 25px;
+}
+
+.menu span:nth-child(3) {
+    margin-top: 40px;
+}
+
+.sub-menu {
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    height: 0;
+    width: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    background-color: rgba(38, 84, 133, 0.90);
+    border-radius: 50%;
+    z-index: 18;
+    overflow: hidden;
+}
+
+.sub-menu li {
+    display: block;
+    float: right;
+    clear: both;
+    height: auto;
+    margin-right: -160px;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.sub-menu li:first-child {
+    margin-top: 220px;
+}
+
+.sub-menu li:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.sub-menu li:nth-child(2) {
+    transition-delay: 0.10s;
+}
+
+.sub-menu li:nth-child(3) {
+    transition-delay: 0.15s;
+}
+
+.sub-menu li:nth-child(4) {
+    transition-delay: 0.20s;
+}
+
+.sub-menu li:nth-child(5) {
+    transition-delay: 0.25s;
+}
+
+.sub-menu li a {
+    color: #fff;
+    width: 100%;
+    display: block;
+    float: left;
+    line-height: 50px;
+}
+
+.menuAbierto .sub-menu {
+    opacity: 1;
+    height: 500px;
+    width: 500px;
+}
+
+.menuAbierto span:nth-child(2) {
+    overflow: visible;
+}
+
+.menuAbierto span:nth-child(1),
+.menuAbierto span:nth-child(3) {
+    z-index: 100;
+    transform: rotate(45deg);
+}
+
+.menuAbierto span:nth-child(1) {
+    transform: rotate(45deg) translateY(12px) translateX(12px);
+}
+
+.menuAbierto span:nth-child(2) {
+    width: 400px;
+    right: -160px;
+    top: -160px;
+    border-radius: 50%;
+    background-color: rgba(38, 84, 133, 0.54);
+}
+
+.menuAbierto span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px) translateX(10px);
+}
+
+.menuAbierto li {
+    margin-right: 168px;
+}
+
+li div.idioma {
+    width: 119px;
+    display: flex;
+    text-align: right;
+}
+/**FIN Menu navegacion**/
+
+section#inicio,
+section#experiencia,
+section#formacion,
+section#conocimientos {        
+    background-color: rgba(222, 222, 222, 0.76);
+    width: 100%; height: 100%;
+    padding-bottom: 2%;
+}
+
+section#inicio {
+    display: flex;
+    flex-direction: row;
+}
+section#experiencia,
+section#formacion,
+section#conocimientos {
+    display: flex;
+    flex-direction: column;
+}
+
+section#formacion {
+    height: auto;
+    min-height: 1370px;
+}
+
+aside#aside, section#presentacion {
+    float: left;
+    margin-top: 1%;
+}
+
+aside#aside{
+    width:36%;
+    min-width: 420px;
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 39%,rgba(249,239,224,1) 100%);
+    box-shadow: 0 2px 5px 0 rgba(238, 238, 238, .34), 0 2px 10px 0 rgba(238, 238, 238, .30);
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+section#presentacion {
+    width:58%;
+    background-color: #EDE6E6;
+    box-shadow: 0 2px 5px 0 rgba(238, 238, 238, .34), 0 2px 10px 0 rgba(238, 238, 238, .30);
+    margin-right: 2%;
+}
+
+img.imagen {
+    display: block;
+    margin: auto;
+    width: 90%;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+div#imagenFoto {
+    position: relative;
+    top: 0;
+    left: 0;    
+    background:  linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 39%,rgba(249,239,224,1) 100%);
+}
+
+div.tituloNombre {
+    text-align: center;
+    color: #1e1e1e;
+    left: 0;
+    right: 0;
+    background-color: rgba(255,255,255,0.5);
+    box-shadow: 0 10px 6px -6px #777;
+    position: relative;
+    bottom: 130px;
+    padding: 4px 0 0;    
+}
+
+div#infoContacto div#titulo {
+    margin-top:-10px;
+}
+
+div#infoContacto h2 {
+    font-weight: normal;
+    background-color: rgba(126, 117, 108, 0.9);
+    box-shadow: 0 10px 6px -6px #777;
+    text-align: center;
+    padding:4px;
+}
+
+img#telefono,
+img#correo,
+img#redSocial {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+img#redSocial:hover {
+    box-shadow: 0 0 8px #666;
+}
+
+img#redSocial:active {
+    position: relative;
+    top: 1px;
+}
+
+a.boton-pdf {
+    margin: 20px auto;
+    width: 160px;
+    padding: 6px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.2s;
+    color: #fff;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: block;
+    background-color: #78716c;   
+    border: 2px solid #666666;
+    box-shadow: 0 1px 6px 1px #777;
+    position: relative;
+    top: 1px;
+}
+
+a.boton-pdf p {
+    vertical-align: middle;
+    font-size: 0.8em;
+    line-height: 18px;
+    font-weight: 500;
+}
+
+a.boton-pdf:hover {
+    background-position: right center;
+    box-shadow: 0 1px 6px 1px #777;
+}*
+
+a.boton-pdf:active {
+    position: relative;
+    top: 1px;
+    box-shadow: 0 0 0 0;
+    border: 2px solid #fff;
+}
+
+a.boton-pdf img.pdf {
+    float: left;
+    height: 30px;
+    position: relative;
+    top: 2px;
+}
+
+div#datosContacto {
+    position: relative;
+    top: 24px;
+}
+
+div#infoContacto {
+    text-align: center;
+    top: -50px;
+    position: relative;
+}
+
+div#infoContacto ul :hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+div#infoContacto li :hover {
+    cursor: pointer;
+}
+
+div#infoContacto a {
+    display: block;
+    padding: 6px 0;
+}
+
+div#infoContacto ul li,
+div#infoContacto a,
+div#infoContacto b {
+    color: #212121;
+}
+
+div.acercaMi div p {
+    padding: 10px 20px;
+    line-height: 24px;
+    color: #212121;
+}
+
+div.acercaMi {
+    margin: 40px 10px;
+}
+
+div.acercaMi h2 {
+    padding: 10px 20px;
+    line-height: 40px;
+}
+
+div.titulo {
+    height: 70px;
+}
+
+img.iconoTitulo {
+    width: 50px;
+    height: 50px;
+    margin: 0 20px 20px;
+    vertical-align: middle;
+    float: left;
+    display: block
+}
+
+section#experiencia h2,
+section#formacion h2,
+section#conocimientos h2 {
+    padding: 4px;
+}
+
+/*****Experiencia*****/
+div.bloqueExperiencia{
+    background: #f6f2e1;
+    margin-left: 2%;
+    margin-right: 2%;   
+    min-height: 485px;
+    box-shadow: 0 2px 5px 0 rgba(238, 238, 238, .34), 0 2px 10px 0 rgba(238, 238, 238, .30);
+
+}
+
+ul#experienciaLista{
+    margin: 0 auto;
+}
+
+ul#experienciaLista li{
+    margin: 60px auto;
+    width: 80%
+}
+
+div.experienciaPeriodo {
+    background: #f6f2e1;
+    padding: 10px 0;
+    display: flex;
+}
+
+div.empleo-cargo {
+    float: left;
+    text-align: right;
+    height: 90px;
+    display: table;
+    width: 230px;
+}
+
+div.empleo-cargo h3 {
+    color: #393336;        
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.5em;
+}
+
+div.empleo-cargo h4 {
+    color: rgba(100, 100, 100, 0.9);
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+}
+
+div.empleo-cargo hr {
+    border-top: 1px solid rgba(150, 150, 150, 1);
+    color: rgba(150, 150, 150, 1);
+    margin: 8px 0;
+}
+
+div.periodoTrabajado {
+    background: #7bbbff none repeat scroll 0 0;
+    border: 10px solid #ddd;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width: 110px;
+    height: 110px;
+}
+
+div.periodoTrabajado h4 {
+    margin: 20px auto;
+}
+
+div.descripcion {
+    width: 70%;
+}
+
+div.descripcion p {
+    color: #222;
+}
+
+/*****Formacion*****/
+div.timeline {
+    background: #f6f2e1;
+    margin-left: 2%;
+    margin-right: 2%;   
+    min-height: 1600px;
+    box-shadow: 0 2px 5px 0 rgba(238, 238, 238, .34), 0 2px 10px 0 rgba(238, 238, 238, .30);
+
+}
+
+div.timeline ul li {
+    margin-bottom: 20px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    margin: 40px auto;
+}
+
+div.timeline li div.point {
+    margin: 0 -7px;
+    min-width: 20px;
+    height: 20px;
+    background: #ddd;
+    border-radius: 100%;
+    z-index: 2;
+    border: 6px solid #333;
+}
+
+div.timeline ul li:nth-child(even) .point{
+    margin: 0 -12px;
+}
+
+div.timeline ul li .content {
+    width: 50%;
+    display: grid;
+    padding: 0 20px;
+}
+
+div.timeline ul li:nth-child(odd) .content {
+    padding-left: 0;
+}
+
+div.timeline ul li:nth-child(odd) .date {
+    padding-right: 0;
+}
+
+div.timeline ul li:nth-child(even) .content {
+    padding-right: 0;
+}
+
+div.timeline ul li:nth-child(even) .date {
+    padding-left: 0;
+}
+
+div.timeline ul li .date {
+    padding: 0 20px;
+    font-weight: normal;
+}
+
+div.timeline ul li .date h4 {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.30em;
+    color: #fff;
+    padding: 10px 20px;
+    background-color: #7bbbff;
+    border-radius: 30px;
+    border: 10px solid #ddd;
+}
+
+div.timeline ul li .content h3 {
+    padding-top: 14px;
+    width: 100%;
+    color: #393336;        
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.5em;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+div.timeline ul li .content h4 {
+    padding: 10px 20px;
+    background-color: #fff;
+    font-size: 1.30em;
+    color: rgba(100, 100, 100, 0.9);
+    font-weight: 500;
+    margin-top: 0;
+    text-align: center;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom: 1px solid rgba(150, 150, 150, 1);
+    border-left: 1px solid rgba(150, 150, 150, 1);
+    border-right: 1px solid rgba(150, 150, 150, 1);
+}
+
+div.timeline ul li:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+div.timeline ul li:nth-child(even) .date h4 {
+    float: right;
+    font-size: 1.30em;
+}
+
+div.timelineLinea::before {
+    content: "";
+    position: absolute;
+    min-height: 1580px;
+    width: 4px;
+    left: 50%;
+    background: linear-gradient(to bottom, rgba(125, 125, 125, 0) 0%, rgb(125, 125, 125) 8%, rgb(125, 125, 125) 92%, rgba(125, 125, 125, 0) 100%)
+}
+
+div.timeline div.curso {
+    border-top-right-radius: 6px;
+    background-color: #e8e8e8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 8px;
+    border-top: 1px solid rgba(150, 150, 150, 1);
+    border-left: 1px solid rgba(150, 150, 150, 1);
+    border-right: 1px solid rgba(150, 150, 150, 1);
+}
+
+div.timeline a div.titulacionImg {
+    background: transparent url("../img/titulo2.png") no-repeat center center;
+    box-shadow: 1px 1px 4px 2px rgba(15, 15, 40, 0.60);
+    background-size: 50px 50px;
+    margin: 5px 10px 10px;
+    transition: 0.1s;
+    vertical-align: middle;
+    width: 50px;
+    height: 40px;
+}
+
+div.timeline a div.titulacionImg:hover {
+    box-shadow: 1px 1px 4px 2px rgba(15, 15, 40, 0.60);
+}
+
+div.timeline a div.titulacionImg:active {
+    box-shadow: 0 0 0 0;
+    border: 1px solid #a0a0a0;
+}
+
+/*****Conocimientos*****/
+div.conocimientos-contenedor{
+    background: #f6f2e1;
+    margin-left: 2%;
+    margin-right: 2%; 
+    padding-top: 1%;
+    padding-bottom: 1%;
+    min-height: 540px;
+    box-shadow: 0 2px 5px 0 rgba(238, 238, 238, .34), 0 2px 10px 0 rgba(238, 238, 238, .30);
+}
+
+div.auto-grid {
+    width: 60%;margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+}
+
+div.auto-grid img {
+    width: 100px;
+    height: 100px;
+    margin: 26px auto;
+}
+
+div.auto-grid div {
+    text-align: center;
+    background-color: #e8e8e8;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (min-width : 320px) 
+and (max-width: 480px) 
+and (orientation: portrait) {
+
+    p,a {
+        font-size: 1.08em;
+    }
+
+    h1 {
+        font-size: 2.00em;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 1.60em;
+    }
+
+    h3 {
+        font-size: 1.40em;
+    }
+
+    h4 {
+        font-size: 1.30em;
+    }
+
+    section#inicio {
+        display: flex;
+        flex-direction: column;
+        min-height: 1000px;
+    }
+    aside#aside {
+        margin-top: 10px;
+    }
+
+    aside#aside, section#presentacion {
+        width: 95%;
+        margin-left: 10px;
+        margin-right: 10px; 
+        margin-top: 0;
+        height: auto;
+        min-width: inherit;
+    }
+
+    div.tituloNombre {
+        padding: 10px 0;
+    }
+
+    img.imagen {
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: auto;
+    }
+
+    div#infoContacto {
+        padding-top: 14px;
+    }
+
+    div#infoContacto h2 {
+        padding: 6px 0;
+    }
+
+    div#datosContacto {
+        position: relative;
+        top: 20px;
+    }
+
+
+    img#telefono, img#correo, img#redSocial {
+        width: 20px;
+        height: 20px;
+    }
+
+    div.acercaMi {
+        padding: 0 ;
+        margin: 0;
+    }
+
+    div.acercaMi div p {
+        padding: 0 5%;    
+    }
+
+    section#presentacion {   
+        margin-top: 0;
+    }
+
+    div.bloqueExperiencia {
+        min-height: 1170px;
+    }
+
+    div.empleo-cargo hr {
+        margin: 8px 46px;
+    }
+
+    section#experiencia h2,
+    section#formacion h2,
+    section#conocimientos h2 {
+        padding: 10px;
+    }
+
+    ul#experienciaLista {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    div.experienciaPeriodo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    div.empleo-cargo {
+        float: none;
+        width: inherit;
+        height: 0;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    div.empleo-cargo h4 {
+        margin-bottom: 0;
+    }
+
+    div.periodoTrabajado {
+        margin: 20px auto;
+    }
+
+    div.descripcion {
+        width: inherit;
+    }
+
+    div.periodoTrabajado h4 {
+        margin: 18px auto;
+        padding: 0;
+        width: 70px;
+    }
+
+    ul#experienciaLista li {
+        margin: 40px auto;
+        width: 96%;
+    }
+
+    div.timeline {
+        min-width: 0;
+        margin: 0 10px;
+        min-height: 2750px;
+    }
+
+    div.timelineLinea::before {
+        min-height: 2750px;
+    }
+
+    div.timeline ul li,
+    div.timeline ul li:nth-child(even){
+        flex-direction: column-reverse;
+    }
+
+    div.timeline ul li .content {
+        width: 100%;
+        padding: 0;
+        margin-top: 10px;
+        z-index: 2;
+    }
+
+    div.timeline ul li div.point,
+    div.timeline ul li:nth-child(even) div.point{
+        margin: 10px -12px 0;
+    }
+
+    div.timeline li div.point {
+        position: relative;
+        left: 2px;
+    }
+
+    div.timeline ul li .date {
+        padding: 0;
+        z-index: 2;
+        position: relative;
+        left: 1px;
+    }
+
+    div.auto-grid {
+        width: inherit;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-items: flex-start;
+        position: relative;
+        left: 4px;
+        right: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    div.auto-grid div {
+        margin: 4px;
+        width: 30%;
+        height: 30%;
+    }
+
+    div.auto-grid img {
+        width: 45%;
+        height: 45%;
+    }
+
+    div.conocimientos-contenedor {
+        min-height: 380px;
+    }
+    section#conocimientos {
+        padding-bottom: 10%;
+    }
+}
+
+/* Smartphones (landscape) ----------- */
+@media (max-width: 767px) 
+and (orientation: landscape) {
+
+    p {
+        font-size: 1.08em;
+    }
+
+    h1 {
+        font-size: 1.60em;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 1.45em;
+    }
+
+    h3 {
+        font-size: 1.40em;
+    }
+
+    h4 {
+        font-size: 1.35em;
+    }
+
+    section#inicio {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    aside#aside {
+        margin-top: 10px;
+    }
+
+    aside#aside, section#presentacion {
+        width: 95%;
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto; 
+        height: auto;
+        min-width: inherit;
+    }
+
+    div.tituloNombre {
+        padding: 10px 0;
+        bottom: 140px;
+        position: relative;
+    }
+
+    div#imagenFoto {
+        background:  linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 39%,rgba(249,239,224,1) 100%);
+    }
+
+    img.imagen {   
+        margin: auto;
+        width: 80%;  
+    }
+
+    div#infoContacto {
+        padding-top: 14px;
+    }
+
+    div#infoContacto h2 {
+        padding: 10px 0;
+    }
+
+    div.acercaMi {
+        padding: 0 ;
+        margin: 0;
+    }
+
+    div.acercaMi div p {
+        padding: 0 3%;    
+    }
+
+    section#presentacion {   
+        margin-top: 0;
+    }
+
+    div.bloqueExperiencia {
+        min-height: 860px;
+    }
+
+    ul#experienciaLista {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    ul#experienciaLista li {
+        width: 100%; 
+        margin: 30px auto;
+    }
+
+    div.experienciaPeriodo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    div.periodoTrabajado h4 {
+        padding: 0;
+        margin: 18px auto;
+        width: 80px;
+    }
+
+    div.empleo-cargo {
+        margin: 0 auto;
+        float: none;
+        width: inherit;
+        height: 0;
+        text-align: center;
+    }
+
+    div.empleo-cargo h4 {
+        margin-bottom: 0;
+    }
+
+    div.periodoTrabajado {
+        margin: 10px auto;
+    }
+
+    div.descripcion {
+        width: inherit;
+    }
+
+    div.descripcion p {
+        padding: 0 10px;
+    }
+    div.timeline {
+        min-width: 0;
+        margin: 0 10px;
+        min-height: 2460px;
+    }
+
+    div.timelineLinea::before {
+        min-height:  2460px;
+    }
+
+    div.timeline ul li,
+    div.timeline ul li:nth-child(even){
+        flex-direction: column-reverse;
+    }
+
+    div.timeline ul li .content {
+        width: 100%;
+        padding: 0;
+        margin-top: 10px;
+        z-index: 2;
+    }
+
+    div.timeline ul li div.point,
+    div.timeline ul li:nth-child(even) div.point{
+        margin: 10px -12px 0;
+    }
+
+    div.timeline li div.point {
+        position: relative;
+        left: 2px;
+    }
+
+    div.timeline ul li .date {
+        padding: 0;
+        z-index: 2;
+        position: relative;
+        left: 1px;
+    }
+
+    div.conocimientos-contenedor {
+        min-height: 325px;
+    }
+
+    div.auto-grid {
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-items: flex-start;
+        position: relative;
+        left: 10px;
+        right: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    div.auto-grid div {
+        margin: 4px;
+        width: 22%;
+        height: 22%;
+    }
+
+    div.auto-grid img {
+        width: 50%;
+        height: 50%;
+    }
+}
+
+/* Portrait TABLET portrait*/
+@media only screen 
+and (min-width : 481px) 
+and (max-width: 930px)    
+and (orientation: portrait) {
+
+    h1{
+        font-size: 2.00em;
+    }
+
+    h2{
+        font-size: 1.90em;
+    }
+
+    h3 {
+        font-size: 1.70em
+    }
+
+    h4 {
+        font-size: 1.50em
+    }
+
+    p, a {
+        font-size: 1.30em
+    }   
+
+    section#inicio {
+        display: flex;
+        flex-direction: column;
+        min-height: 1000px;
+    }
+    aside#aside {
+        margin-top: 10px;
+    }
+
+    aside#aside, section#presentacion {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto; 
+        margin-top: 0;
+        height: auto;
+        min-width: inherit;
+    }
+
+    div.tituloNombre {
+        padding: 10px 0;
+        position: relative;
+        bottom: 160px;
+    }
+
+    img.imagen {
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: auto;
+    }
+
+    div#infoContacto h2 {
+        padding: 6px 0;
+    }
+
+    div#datosContacto {
+        position: relative;
+        top: 20px;
+    }
+
+    img#telefono, img#correo, img#redSocial {
+        width: 20px;
+        height: 20px;
+    }
+
+    div.acercaMi {
+        padding: 0 ;
+        margin: 0;
+    }
+
+    div.acercaMi div p {
+        padding: 0 5%;    
+    }
+
+    section#presentacion {   
+        margin-top: 0;
+    }
+
+    div.bloqueExperiencia {
+        min-height: 945px;
+        margin-left: 2.6%;
+        margin-right: 2.6%;
+    }
+
+    ul#experienciaLista {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    ul#experienciaLista li {
+        width: 100%; 
+        margin: 30px auto;
+    }
+
+    div.experienciaPeriodo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    div.periodoTrabajado h4 {
+        padding: 0;
+        margin: 14px auto;
+        width: 80px;
+    }
+
+    div.empleo-cargo {
+        margin: 0 auto;
+        float: none;
+        width: inherit;
+        height: 0;
+        text-align: center;
+    }
+
+    div.empleo-cargo h4 {
+        margin-bottom: 0;
+    }
+
+    div.periodoTrabajado {
+        margin: 10px auto;
+    }
+
+    div.descripcion {
+        width: inherit;
+    }
+
+    div.descripcion p {
+        padding: 0 10px;
+    }
+
+    div.timeline {
+        min-width: 0;
+        margin-left: 2.6%;
+        margin-right: 2.6%;
+        min-height: 2620px;
+    }
+
+    div.timelineLinea::before {
+        min-height:  2620px;
+    }
+
+    div.timeline ul li,
+    div.timeline ul li:nth-child(even){
+        flex-direction: column-reverse;
+    }
+
+    div.timeline ul li .content {
+        width: 100%;
+        padding: 0;
+        margin-top: 10px;
+        z-index: 2;
+    }
+    div.timeline ul li div.point,
+    div.timeline ul li:nth-child(even) div.point{
+        margin: 10px -12px 0;
+    }
+
+    div.timeline li div.point {
+        position: relative;
+        left: 2px;
+    }
+
+    div.timeline ul li .date {
+        padding: 0;
+        z-index: 2;
+        position: relative;
+        left: 1px;
+    }
+
+    div.conocimientos-contenedor {
+        margin-left: 2.6%;
+        margin-right: 2.6%;
+    }
+
+    div.auto-grid {
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+/* Portrait TABLET landscape*/
+@media only screen 
+and (min-width: 768px) 
+and (max-width: 1024px) 
+and (orientation: landscape) {
+
+    h1{
+        font-size: 2.00em;
+    }
+
+    h2{
+        font-size: 1.90em;
+    }
+
+    h3 {
+        font-size: 1.70em
+    }
+
+    h4 {
+        font-size: 1.50em
+    }
+
+    p, a {
+        font-size: 1.30em
+    } 
+
+    aside#aside {
+        width: 36%;
+        min-width: 360px;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    section#presentacion {
+        width: 58%;
+        margin-right: 2%;
+    }   
+
+    article#article {
+        float: right;
+        margin-left: 0;
+    }
+
+    img.imagen {
+        display: block;
+        width: 100%;
+        margin: auto;
+    }
+
+    div.tituloNombre {
+        top: -120px;
+        position: relative;
+    }
+
+    div#infoContacto h1 {
+        padding: 0 10px !important;
+    }
+
+    div#infoContacto h2 {
+        padding: 4px !important;
+        margin: 0 !important;
+    }
+
+    div.curriculums {
+        width: inherit !important;
+        display: inline-flex !important;
+    }
+
+    div.acercaMi {
+        padding: 0 10px !important;
+        margin: 20px !important;
+    }
+
+    article#article div.acercaMi h1 {
+        text-align: center;
+        line-height: 1.2 !important;
+    }
+
+    article#article div.acercaMi h2 {
+        line-height: 1.3 !important;
+        text-align: center;
+    }
+
+    div.acercaMi div p {
+        padding: 10px 4px !important;
+    }
+
+    a.boton-pdf {
+        margin: 20px auto !important;
+    }
+
+    ul#experienciaLista li {
+        margin: 60px auto;
+        width: 95%;
+    }
+
+    div.bloqueExperiencia {
+        min-height: 680px;
+    }
+
+    div.empleo-cargo {
+        width: 260px;
+    }
+
+    div.periodoTrabajado {
+        height: 120px;
+        width: 120px;
+    }
+
+    div.descripcion {
+        width: 58%;
+    }
+
+    div.timeline {
+        min-height: 1900px;
+    }
+
+    div.timelineLinea::before {
+        min-height: 1900px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    /* body{
+         border: 4px solid red;
+     }*/
+    div.bloqueExperiencia {
+        min-height: 510px;
+    }
+}

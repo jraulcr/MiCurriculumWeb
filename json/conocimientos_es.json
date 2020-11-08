@@ -1,0 +1,34 @@
+{
+    "logosImg":{
+        "Logo01":{ 
+            "altImagen":"HTML5",  
+            "urlImgLogo":"img/logo1.png"
+        },
+       "Logo02":{ 
+            "altImagen":"CSS3",           
+            "urlImgLogo":"img/logo2.png"
+        },
+        "Logo03":{ 
+            "altImagen":"JavaScript",     
+            "urlImgLogo":"img/logo3.png"
+        },
+        "Logo04":{ 
+            "altImagen":"JQuery",         
+            "urlImgLogo":"img/logo4.png"
+        },  
+        "Logo05":{ 
+            "altImagen":"PHP",       
+            "urlImgLogo":"img/logo5.png"
+        },
+        "Logo06":{ 
+            "altImagen":"Java",           
+            "urlImgLogo":"img/logo6.png"
+        },      
+        "Logo07":{ 
+            "altImagen":"MySQL",           
+            "urlImgLogo":"img/logo7.png"
+        } 
+    }
+}
+
+

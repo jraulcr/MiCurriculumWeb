@@ -1,0 +1,16 @@
+{
+    "experiencia": {
+        "Curso02": {
+            "fecha_periodo": "2017 2019",
+            "cargo": "Programador Java júnior",
+            "empresa": "Viewnext",
+            "funciones": "Correccions i millores en un projecte final de client a Java EE amb EJB. Desenvolupament web amb Primefaces JSF, HTML i CSS. Realització de canvis prèvia informació d'incidències. Consultes i gestió de dades en SQL amb DB2. Anàlisi, comprovació i resolució d'incidències."
+        },
+        "Curso01": {
+            "fecha_periodo": "2010 2017",
+            "cargo": "Desenvolupador web",
+            "empresa": "Eurus, e-i",
+            "funciones": "Treballs realitzats en projectes fets a Java, creats per a generar preguntes per a estudis de mercat online. Desenvolupament web amb JSP, HTML i CSS. Desenvolupament de webs dinàmiques amb JavaScript i JQuery. Creació de la web corporativa de Eurus i-i en HTML5 i CSS3. Gestió de dades en SQL amb MySQL, en local i en servidor remot. Disseny web adaptable per a dispositius mòbils (Responsive Web Design). Coneixements del standard W3C. Creació de e-mailings HTML en projecte creat en JavaMail. Anàlisi i comprovació d'incidències corregides."
+        }
+    }
+}
