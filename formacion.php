@@ -10,7 +10,6 @@ if ($datosCursos) {
     function getFormacion($cursos, $verCertifLiteral) {
         echo "<ul id=\"formacionLista\">";
         foreach ($cursos as $curso) {
-
             echo "<li style=\"display: none;\">";
             echo "<div class=\"content\">";
             echo "<div class=\"curso\">";
