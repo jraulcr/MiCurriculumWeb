@@ -129,15 +129,16 @@ div.ancla:before {
     display: block;
     float: left;
     clear: both;
-    height: 6px;
+    height: 10px;
     width: 50px;
     border-radius: 40px;
-    background-color: rgba(69, 144, 224, 1);
+    background-color: #7bbbff;
     position: absolute;
     right: 3px;
     top: 3px;
     overflow: hidden;
     transition: all 0.6s ease;
+    border: 2px solid #fff;
 }
 
 .menu span:nth-child(1) {
@@ -155,12 +156,10 @@ div.ancla:before {
 
 .sub-menu {
     transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    height: 0;
-    width: 0;
     right: 0;
     top: 0;
     position: absolute;
-    background-color: rgba(38, 84, 133, 0.90);
+    background-color: #7bbbff;
     border-radius: 50%;
     z-index: 18;
     overflow: hidden;
